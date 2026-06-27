@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ bio.name }} | Portfolio</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+
+<header>
+
+{% if bio.profile_picture %}
+<img src="{{ bio.profile_picture.url }}" alt="Profile Picture">
+{% endif %}
+
+<h1>{{ bio.name }}</h1>
+<h3>{{ bio.job_title }}</h3>
+
+<p>{{ bio.description }}</p>
+
+</header>
+
+<section>
+
+<h2>Education</h2>
+
+{% for edu in education %}
+<div class="edu">
+<h3>{{ edu.degree }}</h3>
+<p>{{ edu.university }}</p>
+<p>Semester : {{ edu.semester }}</p>
+</div>
+{% endfor %}
+
+</section>
+
+<section>
+
+<h2>Skills</h2>
+
+<ul>
+{% for skill in skills %}
+<li>{{ skill.skill_name }}</li>
+{% endfor %}
+</ul>
+
+</section>
+
+<section>
+
+<h2>Experience</h2>
+
+{% for exp in experience %}
+<div class="exp">
+<h3>{{ exp.title }}</h3>
+<p>{{ exp.description }}</p>
+</div>
+{% endfor %}
+
+</section>
+
+<section>
+
+<h2>Projects</h2>
+
+{% for project in projects %}
+<div class="project">
+<h3>{{ project.title }}</h3>
+<p>{{ project.description }}</p>
+</div>
+{% endfor %}
+
+</section>
+
+<footer>
+
+<p>© 2026 {{ bio.name }} | Portfolio Website</p>
+
+</footer>
+
+</body>
+</html
